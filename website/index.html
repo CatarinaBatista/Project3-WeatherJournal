@@ -18,19 +18,19 @@
                 <div class="card card-fields">
                     <div class="field">
                         <label for="zipCode">Enter your zip-code:</label>
-                        <input class="input" type="text" id="zipCode" placeholder="Enter zip code here">
+                        <input class="input" type="text" id="zipCode" placeholder="Enter your zip code here" required>
                     </div>
 
                     <div class="field">
                         <label for="feelings">How are you feeling today?</label>
-                        <textarea class="input" id="feelings" placeholder="Enter your feelings here" rows="10" cols="50"></textarea>
+                        <textarea class="input" id="feelings" placeholder="Enter your feelings here" rows="10" cols="50" required></textarea>
                     </div>  
                     
                     <button id="generate" type="submit"> Generate </button>
                 </div>
 
                 <div class="card card-results">
-                    <div class="title">Most Recent Entry</div>
+                    <div class="title"><b>Most Recent Entry</b></div>
                     <div id="entryHolder">
                         <div id="date"></div> 
                         <div id="temp"></div>
