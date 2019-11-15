@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Weather Journal App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="content">
+            <header class="header">
+                <img src="./images/header.png" class="img-left" alt="sun">
+                <h1>Weather Journal</h1>
+                <img src="./images/header.png" class="img-right" alt="sun">
+            </header>
+
+            <main>
+                <div class="card card-fields">
+                    <div class="field">
+                        <label for="zipCode">Enter your zip-code:</label>
+                        <input class="input" type="text" id="zipCode" placeholder="Enter zip code here">
+                    </div>
+
+                    <div class="field">
+                        <label for="feelings">How are you feeling today?</label>
+                        <textarea class="input" id="feelings" placeholder="Enter your feelings here" rows="10" cols="50"></textarea>
+                    </div>  
+                    
+                    <button id="generate" type="submit"> Generate </button>
+                </div>
+
+                <div class="card card-results">
+                    <div class="title">Most Recent Entry</div>
+                    <div id="entryHolder">
+                        <div id="date"></div> 
+                        <div id="temp"></div>
+                        <div id="content"></div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <p>&copy Catarina Batista 2019</p>
+            </footer>
+        </div>
+        <script src="app.js" type="text/javascript"></script>
+    </body>
+</html>
