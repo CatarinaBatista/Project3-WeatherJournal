@@ -25,6 +25,10 @@ const performAction = async () => {
     const zipCode = document.getElementById('zip').value;
     const feelings = document.getElementById('feelings').value;
 
+    if (zipCode === '' || zipCode === null || zipCode === ' ') {
+        alert('Insert a valid zip code')
+    }
+
     getWeather(zipCode)
         .then(data => {
             const allData = {
@@ -32,7 +36,7 @@ const performAction = async () => {
                 temp: data.main.temp,
                 content: feelings
             };
-            postData('/addData', allData);            
+            postData('/addData', allData);
         })
         .then(
             updateUI
@@ -45,7 +49,7 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 
 /* Function to POST data */
-const postData = async (url='', data={}) => {    
+const postData = async (url='', data={}) => {
     const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
