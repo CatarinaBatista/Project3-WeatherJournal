@@ -41,11 +41,9 @@ function getData(req, res) {
 
 // POST route
 app.post('/addData', postData);
-console.log(projectData)
 
 function postData(req, res){
     projectData.date = req.body.date;
     projectData.temp = req.body.temp;
     projectData.content = req.body.content;
-    console.log(projectData)
 }

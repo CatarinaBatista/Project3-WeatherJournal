@@ -75,6 +75,7 @@ const updateUI = async() => {
 
     try {
         const data = await request.json;
+        console.log(fetch('/getData'))
         
         document.getElementById('date').innerHTML = data.date;
         document.getElementById('temp').innerHTML = data.temp;
