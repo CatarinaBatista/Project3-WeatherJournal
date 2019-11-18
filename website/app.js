@@ -1,8 +1,8 @@
 /* Global Variables */
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?';
 const apiKey = "bf1eadabe68b7dcef6a640d1f7732a51";
-let d = new Date();
-let todaysDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let date = new Date();
+let todaysDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
 
 /* Function to GET Web API Data */
@@ -23,7 +23,7 @@ const getWeather = async(zipCode) => {
 
 /* Function called by event listener */
 const performAction = async () => {
-    const zipCode = document.getElementById('zipCode').value;
+    const zipCode = document.getElementById('zip').value;
     const feelings = document.getElementById('feelings').value;
 
     getWeather(zipCode)
@@ -34,7 +34,7 @@ const performAction = async () => {
                 content: feelings
             };
             console.log(allData)
-            postUserData('/addData', allData);            
+            postData('/addData', allData);            
         })
         .then(
             updateUI()
@@ -47,7 +47,7 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 
 /* Function to POST data */
-const postUserData = async (url='', data={}) => {    
+const postData = async (url='', data={}) => {    
     const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
@@ -69,17 +69,16 @@ const postUserData = async (url='', data={}) => {
 }
 
 
-/*  */
+/* Function to update UI */
 const updateUI = async() => {
-    const request = await fetch('/getData');
+    const req = await fetch('/getData')
+        .then(Response => Response.json());
 
-    try {
-        const data = await request.json;
-        console.log(fetch('/getData'))
-        
-        document.getElementById('date').innerHTML = data.date;
-        document.getElementById('temp').innerHTML = data.temp;
-        document.getElementById('content').innerHTML = data.content;
+    try { 
+        document.getElementById('date').innerHTML = req.date;
+        document.getElementById('temp').innerHTML = 'Celsius: ' + Math.round(Number(req.temp) - 273.15) + 'ºC <br><br> ' + 
+        'Fahrenheit: ' + (Math.round(Number(req.temp) - 273.15) * 9/5 + 32) + 'ºF';
+        document.getElementById('content').innerHTML = req.content;
     }
     catch (error) {
         console.log('ERROR: ', error);

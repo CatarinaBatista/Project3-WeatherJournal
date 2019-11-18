@@ -100,11 +100,13 @@ button:hover {
     margin-bottom: 35px;
 }
 
-#weatherData div{
-    height: 100px;
+#entryHolder div{
+    height: 80px;
+    padding: 10px 20px;
+    font-size: 15px;
 }
 
-#weatherData span{
+#entryHolder span{
     margin-bottom: 20px;
     color: #ff6600;
 }
