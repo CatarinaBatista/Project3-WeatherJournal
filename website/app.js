@@ -12,7 +12,6 @@ const getWeather = async(zipCode) => {
     const result = await fetch(url);
     try {
         const data = await result.json();
-        console.log(data);
         return data;
     }
     catch(error) {
@@ -33,11 +32,10 @@ const performAction = async () => {
                 temp: data.main.temp,
                 content: feelings
             };
-            console.log(allData)
             postData('/addData', allData);            
         })
         .then(
-            updateUI()
+            updateUI
         );
 };
 
@@ -59,7 +57,6 @@ const postData = async (url='', data={}) => {
 
     try {
         const userData = await response.json();
-        console.log(userData);
         return userData;
     }
     catch(error) {

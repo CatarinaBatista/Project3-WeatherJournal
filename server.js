@@ -46,6 +46,4 @@ function postData(req, res){
     projectData.date = req.body.date;
     projectData.temp = req.body.temp;
     projectData.content = req.body.content;
-
-    console.log(projectData)
 }
