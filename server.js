@@ -32,7 +32,7 @@ function listening(){
 
 
 // GET route
-app.get('/getRecord', getData);
+app.get('/getData', getData);
 
 function getData(req, res) {
     res.send(projectData);
@@ -41,9 +41,11 @@ function getData(req, res) {
 
 // POST route
 app.post('/addData', postData);
+console.log(projectData)
 
-function postData(req, res){    
+function postData(req, res){
     projectData.date = req.body.date;
     projectData.temp = req.body.temp;
     projectData.content = req.body.content;
-};
+    console.log(projectData)
+}
