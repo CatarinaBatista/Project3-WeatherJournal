@@ -16,7 +16,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0a75b3;
+    color: #00588b;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.103);
 }
 
@@ -94,7 +94,7 @@ button:hover {
 }
 
 .title {
-    color: #0a75b3;
+    color: #00588b;
     text-align: center;
     font-size: 21px;
     margin-bottom: 35px;
@@ -102,7 +102,7 @@ button:hover {
 
 #entryHolder div{
     height: 80px;
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 15px;
 }
 
